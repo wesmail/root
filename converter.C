@@ -79,7 +79,8 @@ void converter(int nevts = 0, TString prefix = "signal")
     vector<float_t>  TofM2;
     vector<float_t>  TofTrackLength;
     vector<float_t>  TofQuality;
-    vector<int>      TofIndex;    
+    vector<int>      TofIndex; 
+    vector<float>    TofBeta; 
     
 
     // == Barrel DIRC ==
@@ -194,6 +195,7 @@ void converter(int nevts = 0, TString prefix = "signal")
 		        TofTrackLength.push_back(myCand->GetTofTrackLength());
 		        TofQuality.push_back(myCand->GetTofQuality());
 		        TofIndex.push_back(myCand->GetTofIndex());
+		        TofBeta.push_back(myCand->GetTofBeta());
 		        // == Barrel DIRC ==
                 DrcThetaC.push_back(myCand->GetDrcThetaC());
                 DrcThetaCErr.push_back(myCand->GetDrcThetaCErr());
@@ -359,7 +361,167 @@ void converter(int nevts = 0, TString prefix = "signal")
    
    myfile<<"TofIndex,";
    for(unsigned int i = 0; i < TofIndex.size(); i++){myfile<<TofIndex[i]<<",";}
-   myfile<<"\n";                              
+   myfile<<"\n";  
+   
+   myfile<<"TofBeta,";
+   for(unsigned int i = 0; i < TofBeta.size(); i++){myfile<<TofBeta[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DrcThetaC,";
+   for(unsigned int i = 0; i < DrcThetaC.size(); i++){myfile<<DrcThetaC[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"DrcThetaCErr,";
+   for(unsigned int i = 0; i < DrcThetaCErr.size(); i++){myfile<<DrcThetaCErr[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DrcQuality,";
+   for(unsigned int i = 0; i < DrcQuality.size(); i++){myfile<<DrcQuality[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DrcNumberOfPhotons,";
+   for(unsigned int i = 0; i < DrcNumberOfPhotons.size(); i++){myfile<<DrcNumberOfPhotons[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DrcIndex,";
+   for(unsigned int i = 0; i < DrcIndex.size(); i++){myfile<<DrcIndex[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DiscThetaC,";
+   for(unsigned int i = 0; i < DiscThetaC.size(); i++){myfile<<DiscThetaC[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DiscThetaCErr,";
+   for(unsigned int i = 0; i < DiscThetaCErr.size(); i++){myfile<<DiscThetaCErr[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DiscQuality,";
+   for(unsigned int i = 0; i < DiscQuality.size(); i++){myfile<<[i]<<"DiscQuality,";}
+   myfile<<"\n"; 
+   
+   myfile<<"DiscNumberOfPhotons,";
+   for(unsigned int i = 0; i < DiscNumberOfPhotons.size(); i++){myfile<<DiscNumberOfPhotons[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"DiscIndex,";
+   for(unsigned int i = 0; i < DiscIndex.size(); i++){myfile<<DiscIndex[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"RichThetaC,";
+   for(unsigned int i = 0; i < RichThetaC.size(); i++){myfile<<RichThetaC[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"RichThetaCErr,";
+   for(unsigned int i = 0; i < RichThetaCErr.size(); i++){myfile<<RichThetaCErr[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"RichQuality,";
+   for(unsigned int i = 0; i < RichQuality.size(); i++){myfile<<RichQuality[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"RichNumberOfPhotons,";
+   for(unsigned int i = 0; i < RichNumberOfPhotons.size(); i++){myfile<<RichNumberOfPhotons[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"RichIndex,";
+   for(unsigned int i = 0; i < RichIndex.size(); i++){myfile<<RichIndex[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcRawEnergy,";
+   for(unsigned int i = 0; i < EmcRawEnergy.size(); i++){myfile<<EmcRawEnergy[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcCalEnergy,";
+   for(unsigned int i = 0; i < EmcCalEnergy.size(); i++){myfile<<EmcCalEnergy[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcQuality,";
+   for(unsigned int i = 0; i < EmcQuality.size(); i++){myfile<<[i]<<"EmcQuality,";}
+   myfile<<"\n";
+   
+   myfile<<"EmcNumberOfCrystals,";
+   for(unsigned int i = 0; i < EmcNumberOfCrystals.size(); i++){myfile<<EmcNumberOfCrystals[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcNumberOfBumps,";
+   for(unsigned int i = 0; i < EmcNumberOfBumps.size(); i++){myfile<<EmcNumberOfBumps[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcModule,";
+   for(unsigned int i = 0; i < EmcModule.size(); i++){myfile<<[i]<<"EmcModule,";}
+   myfile<<"\n";
+   
+   myfile<<"EmcIndex,";
+   for(unsigned int i = 0; i < EmcIndex.size(); i++){myfile<<[i]<<"EmcIndex,";}
+   myfile<<"\n";
+   
+   myfile<<"EmcZ20,";
+   for(unsigned int i = 0; i < EmcZ20.size(); i++){myfile<<EmcZ20[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcZ53,";
+   for(unsigned int i = 0; i < EmcZ53.size(); i++){myfile<<EmcZ53[i]<<",";}
+   myfile<<"\n";                        
+   
+   myfile<<"EmcLat,";
+   for(unsigned int i = 0; i < EmcLat.size(); i++){myfile<<EmcLat[i]<<",";}
+   myfile<<"\n";
+
+   myfile<<"EmcE1,";
+   for(unsigned int i = 0; i < EmcE1.size(); i++){myfile<<EmcE1[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"EmcE9,";
+   for(unsigned int i = 0; i < EmcE9.size(); i++){myfile<<EmcE9[i]<<",";}
+   myfile<<"\n";
+   
+   myfile<<"EmcE25,";
+   for(unsigned int i = 0; i < EmcE25.size(); i++){myfile<<EmcE25[i]<<",";}
+   myfile<<"\n";      
+   
+   myfile<<"MuoProbability,";
+   for(unsigned int i = 0; i < MuoProbability.size(); i++){myfile<<MuoProbability[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"MuoQuality,";
+   for(unsigned int i = 0; i < MuoQuality.size(); i++){myfile<<MuoQuality[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"PidChargedCand.fMuoIron,";
+   for(unsigned int i = 0; i < fMuoIron.size(); i++){myfile<<fMuoIron[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"MuoMomentumIn,";
+   for(unsigned int i = 0; i < MuoMomentumIn.size(); i++){myfile<<MuoMomentumIn[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"MuoNumberOfLayers,";
+   for(unsigned int i = 0; i < MuoNumberOfLayers.size(); i++){myfile<<MuoNumberOfLayers[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"MuoModule,";
+   for(unsigned int i = 0; i < MuoModule.size(); i++){myfile<<MuoModule[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"MuoHits,";
+   for(unsigned int i = 0; i < MuoHits.size(); i++){myfile<<MuoHits[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"MuoIndex,";
+   for(unsigned int i = 0; i < MuoIndex.size(); i++){myfile<<MuoIndex[i]<<",";}
+   myfile<<"\n";     
+   
+   myfile<<"DegreesOfFreedom,";
+   for(unsigned int i = 0; i < DegreesOfFreedom.size(); i++){myfile<<DegreesOfFreedom[i]<<",";}
+   myfile<<"\n"; 
+   
+   myfile<<"FitStatus,";
+   for(unsigned int i = 0; i < FitStatus.size(); i++){myfile<<FitStatus[i]<<",";}
+   myfile<<"\n";   
+   
+   myfile<<"ChiSquared,";
+   for(unsigned int i = 0; i < ChiSquared.size(); i++){myfile<<ChiSquared[i]<<",";}
+   myfile<<"\n";     
             
 // ++++++++++++++++++++++++++++++++++++++ end retrieve (output.csv) ++++++++++++++++++++++++++++++++++++++++
 	
