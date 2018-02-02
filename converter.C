@@ -251,6 +251,13 @@ void converter(int nevts = 0, TString prefix = "signal")
 	
 // ++++++++++++++++++++++++++++++++++++++ begin retrieve (output.csv) ++++++++++++++++++++++++++++++++++++++
 
+   int label = 1;  // labels:  electron = 1,  muon = 2,  pion = 3,  kaon = 4,  proton = 5
+   // --------------------------------------------------------------- //
+   myfile<<"label,";
+   for(unsigned int i = 0; i < momentumx.size(); i++){myfile<<label<<",";}
+   myfile<<"\n";   
+   // --------------------------------------------------------------- //	
+	
    myfile<<"momentumx,";
    for(unsigned int i = 0; i < momentumx.size(); i++){myfile<<momentumx[i]<<",";}
    myfile<<"\n";
@@ -396,7 +403,7 @@ void converter(int nevts = 0, TString prefix = "signal")
    myfile<<"\n"; 
    
    myfile<<"DiscQuality,";
-   for(unsigned int i = 0; i < DiscQuality.size(); i++){myfile<<[i]<<"DiscQuality,";}
+   for(unsigned int i = 0; i < DiscQuality.size(); i++){myfile<<DiscQuality[i]<<",";}
    myfile<<"\n"; 
    
    myfile<<"DiscNumberOfPhotons,";
@@ -436,7 +443,7 @@ void converter(int nevts = 0, TString prefix = "signal")
    myfile<<"\n";
    
    myfile<<"EmcQuality,";
-   for(unsigned int i = 0; i < EmcQuality.size(); i++){myfile<<[i]<<"EmcQuality,";}
+   for(unsigned int i = 0; i < EmcQuality.size(); i++){myfile<<EmcQuality[i]<<",";}
    myfile<<"\n";
    
    myfile<<"EmcNumberOfCrystals,";
@@ -448,11 +455,11 @@ void converter(int nevts = 0, TString prefix = "signal")
    myfile<<"\n";
    
    myfile<<"EmcModule,";
-   for(unsigned int i = 0; i < EmcModule.size(); i++){myfile<<[i]<<"EmcModule,";}
+   for(unsigned int i = 0; i < EmcModule.size(); i++){myfile<<EmcModule[i]<<",";}
    myfile<<"\n";
    
    myfile<<"EmcIndex,";
-   for(unsigned int i = 0; i < EmcIndex.size(); i++){myfile<<[i]<<"EmcIndex,";}
+   for(unsigned int i = 0; i < EmcIndex.size(); i++){myfile<<EmcIndex[i]<<",";}
    myfile<<"\n";
    
    myfile<<"EmcZ20,";
@@ -487,8 +494,8 @@ void converter(int nevts = 0, TString prefix = "signal")
    for(unsigned int i = 0; i < MuoQuality.size(); i++){myfile<<MuoQuality[i]<<",";}
    myfile<<"\n";   
    
-   myfile<<"PidChargedCand.fMuoIron,";
-   for(unsigned int i = 0; i < fMuoIron.size(); i++){myfile<<fMuoIron[i]<<",";}
+   myfile<<"MuoIron,";
+   for(unsigned int i = 0; i < MuoIron.size(); i++){myfile<<MuoIron[i]<<",";}
    myfile<<"\n";   
    
    myfile<<"MuoMomentumIn,";
