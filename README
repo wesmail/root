@@ -1,0 +1,11 @@
+to commit new file/modification
+
+1. git add filename
+2. git commit -m "messeage"
+3. git push -u origin master
+
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/wesmail/root.git
+git push -u origin master
